@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Toda Lista</h1>
+  <form #f="ngForm">
+      <input type="text" name="taskField" [(ngModel)]="currentTask" required="">
+      <button class="add-button" (click)="addTask()" [disabled]="!f.valid">Adicionar tarefa</button>
+  </form>
+
+  <ul>
+      <li *ngFor="let task of tasks; index as index">
+          {{task}}
+          <button class="delete-button" (click)="deleteTask(index)">Deletar tarefa</button>
+          <button class="edit-button" (click)="editTask(index)">Editar tarefa</button>
+      </li>
+  </ul>
+</div>
